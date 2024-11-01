@@ -43,20 +43,22 @@
 
 
   function getPhoneNumber() {
-    let value = +input.value;
+    let value = input.value;
     value = value.toString().replace("+972", "").replace(/-/g, "");
-    return value;
+
+    return +value;
   }
 
   function onClick() {
-    const phoneNumber = +input.value;
+    const phoneNumber = getPhoneNumber();
     if (!verifyPhoneNumber(phoneNumber)) {
+      console.log(phoneNumber);
       output.textContent = "";
       clipboardButton.style.display = "none";
       return;
     }
     output.textContent = "https://wa.me/+972" + phoneNumber;
-    output.href = "https://wa.me/+972" + +input.value;
+    output.href = "https://wa.me/+972" + phoneNumber;
     clipboardButton.style.display = "block";
   }
 
@@ -72,7 +74,7 @@
   }
 
   function testInput() {
-    const phoneNumber = input.value;
+    const phoneNumber = getPhoneNumber();
     if (verifyPhoneNumber(phoneNumber)) {
       error.style.display = "none";
     } else {
