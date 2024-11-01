@@ -78,10 +78,11 @@ button:hover {
 #output {
   display: block;
   margin-top: 1rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #0077cc;
   text-decoration: none;
   word-break: break-word;
+  text-decoration: underline;
 }
 
 #error {
@@ -196,6 +197,7 @@ button {
 #dark-mode-toggle {
   margin-top: 1rem;
 }
+
 footer {
   margin-top: 2rem;
   padding: 1rem;
