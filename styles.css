@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f4f8;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #0077cc;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+label {
+  font-size: 1rem;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.3);
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  background-color: #0077cc;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+#output {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #0077cc;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+#error {
+  color: #cc0000;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+#clipboard-button {
+  display: none;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#clipboard-button:hover {
+  background-color: #218838;
+}
+
+input,
+button {
+  transition: all 0.3s ease;
+}
+/* Dark Mode Improvements */
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .main {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode h1 {
+  color: #90caf9; /* Light blue for titles */
+}
+
+.dark-mode .form {
+  background-color: #2a2a2a;
+  border-color: #444;
+}
+
+.dark-mode label {
+  color: #bbb;
+}
+
+.dark-mode input {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #e0e0e0;
+}
+
+.dark-mode input:focus {
+  border-color: #90caf9;
+  box-shadow: 0 0 5px rgba(144, 202, 249, 0.5);
+}
+
+.dark-mode #output {
+  color: #90caf9;
+}
+
+.dark-mode #error {
+  color: #f44336; /* Light red for error message */
+}
+
+.dark-mode button {
+  background-color: #3a3a3a;
+  color: #e0e0e0;
+}
+
+.dark-mode button:hover {
+  background-color: #5a5a5a;
+}
+
+.dark-mode #clipboard-button {
+  background-color: #4caf50; /* Adjust green for dark mode */
+}
+
+.dark-mode #clipboard-button:hover {
+  background-color: #66bb6a;
+}
+
+.dark-mode #clear-input {
+  color: #aaa;
+}
+#clear-input {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+#dark-mode-toggle {
+  margin-top: 1rem;
+}
+footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #555;
+}

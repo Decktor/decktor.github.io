@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <div class="main">
+    <h1>יצירת קישור לוואטסאפ</h1>
+    <form class="form" onsubmit="onClick(); return false;">
+      <label for="input">מספר טלפון</label>
+      <div class="input-container">
+        <input id="input" type="text" />
+        <button type="button" id="clear-input" style="display: none;">X</button>
+      </div>
+      <button>צור קישור</button>
+    </form>
+    <a id="output" href="" target=”_blank”></a>
+    <p id="error" href="">מספר טלפון לא תקין</p>
+
+    <button id="clipboard-button" onclick="copyToClipboard()">העתק קישור</button>
+    <button id="dark-mode-toggle">Dark Mode</button>
+  </div>
+  <footer>
+    <p>&copy; 2024 Decktor. All rights reserved.</p>
+  </footer>
+</body>
+
+<script>
+  const input = document.querySelector("#input");
+  const clearButton = document.querySelector("#clear-input");
+  const output = document.querySelector("#output");
+  const error = document.querySelector("#error");
+  const clipboardButton = document.querySelector("#clipboard-button");
+
+  function verifyPhoneNumber(number) {
+    return /^(0?5\d{8})$/.test(number);
+  }
+
+  function onClick() {
+    const phoneNumber = +input.value;
+    if (!verifyPhoneNumber(phoneNumber)) {
+      output.textContent = "";
+      clipboardButton.style.display = "none";
+      return;
+    }
+    output.textContent = "https://wa.me/+972" + phoneNumber;
+    output.href = "https://wa.me/+972" + +input.value;
+    clipboardButton.style.display = "block";
+  }
+
+  function copyToClipboard() {
+    const el = document.createElement("textarea");
+    el.value = output.href;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+    clipboardButton.textContent = "הקישור הועתק!";
+    setTimeout(() => (clipboardButton.textContent = "העתק קישור"), 2000);
+  }
+
+  function testInput() {
+    const phoneNumber = input.value;
+    if (verifyPhoneNumber(phoneNumber)) {
+      error.style.display = "none";
+    } else {
+      error.style.display = "block";
+    }
+  }
+
+  input.addEventListener("input", () => {
+    testInput();
+  });
+
+
+  document.querySelector("#dark-mode-toggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+
+  input.addEventListener("input", () => {
+    clearButton.style.display = input.value ? "block" : "none";
+  });
+
+  clearButton.addEventListener("click", () => {
+    input.value = "";
+    clearButton.style.display = "none";
+  });
+</script>
+
+</html>
