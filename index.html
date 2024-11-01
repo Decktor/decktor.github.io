@@ -41,6 +41,13 @@
     return /^(0?5\d{8})$/.test(number);
   }
 
+
+  function getPhoneNumber() {
+    let value = +input.value;
+    value = value.toString().replace("+972", "").replace(/-/g, "");
+    return value;
+  }
+
   function onClick() {
     const phoneNumber = +input.value;
     if (!verifyPhoneNumber(phoneNumber)) {
