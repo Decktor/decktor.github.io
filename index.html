@@ -52,7 +52,6 @@
   function onClick() {
     const phoneNumber = getPhoneNumber();
     if (!verifyPhoneNumber(phoneNumber)) {
-      console.log(phoneNumber);
       output.textContent = "";
       clipboardButton.style.display = "none";
       return;
